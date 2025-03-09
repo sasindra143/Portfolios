@@ -1,0 +1,2011 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BusinessHub - Professional Business Templates</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Root Variables for Light/Dark Mode */
+        :root {
+            --primary-color: #0052cc;
+            --secondary-color: #f5f7fa;
+            --accent-color: #ff6b35;
+            --text-color: #333;
+            --light-text: #666;
+            --white: #fff;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --card-bg: #fff;
+        }
+        
+        /* Dark Mode Variables */
+        [data-theme="dark"] {
+            --primary-color: #2979ff;
+            --secondary-color: #121212;
+            --accent-color: #ff7043;
+            --text-color: #f5f5f5;
+            --light-text: #bdbdbd;
+            --white: #1e1e1e;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            --card-bg: #2d2d2d;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            background-color: var(--secondary-color);
+            font-size: 18px;
+            color: var(--text-color);
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+        }
+        
+        .logo-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+        
+        .logo:hover .logo-img {
+            transform: rotate(10deg);
+        }
+        
+        .logo-text {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--text-color);
+            transition: color 0.3s ease;
+        }
+        
+        .logo-text span {
+            color: var(--primary-color);
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            transition: right 0.3s ease;
+        }
+        
+        .nav-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+        
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .dark-mode-toggle {
+            background: none;
+            border: none;
+            color: var(--text-color);
+            font-size: 24px;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+        
+        .support-btn {
+            background-color: var(--accent-color);
+            color: var(--white);
+            padding: 12px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+        
+        .support-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: var(--primary-color);
+            color: white;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+        }
+        
+        .cart-count.bounce {
+            animation: bounce 0.5s;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(-10px);}
+            60% {transform: translateY(-5px);}
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-color);
+            font-size: 24px;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+        
+        .close-menu {
+            display: none;
+            font-size: 24px;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: var(--text-color);
+            transition: color 0.3s ease;
+        }
+        
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 100px 0 80px;
+            transition: padding 0.3s ease;
+        }
+        
+        .animated-badge {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 30px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 30px;
+            font-size: 18px;
+            font-weight: 500;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+        
+        .animated-badge.pulse {
+            animation: pulse 1s;
+        }
+        
+        @keyframes pulse {
+            0% {transform: scale(1);}
+            50% {transform: scale(1.05);}
+            100% {transform: scale(1);}
+        }
+        
+        .hero h1 {
+            font-size: 64px;
+            margin-bottom: 30px;
+            color: var(--text-color);
+            font-weight: 800;
+            line-height: 1.2;
+            transition: font-size 0.3s ease, color 0.3s ease;
+        }
+        
+        .hero h1 span {
+            color: var(--primary-color);
+            transition: color 0.3s ease;
+        }
+        
+        .hero p {
+            color: var(--light-text);
+            margin-bottom: 40px;
+            font-size: 22px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            transition: color 0.3s ease, font-size 0.3s ease;
+        }
+        
+        /* Search Bar */
+        .search-container {
+            max-width: 900px;
+            margin: 0 auto 80px;
+            display: flex;
+            background-color: var(--white);
+            border-radius: 50px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .template-select {
+            padding: 20px 30px;
+            border: none;
+            background-color: var(--white);
+            color: var(--text-color);
+            font-weight: 500;
+            cursor: pointer;
+            border-right: 1px solid #eee;
+            min-width: 200px;
+            font-size: 18px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        
+        .search-input {
+            flex: 1;
+            padding: 20px 30px;
+            border: none;
+            outline: none;
+            font-size: 18px;
+            background-color: var(--white);
+            color: var(--text-color);
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        
+        .search-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 20px 40px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 18px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .search-btn:hover {
+            background-color: var(--accent-color);
+        }
+        
+        /* Templates Grid */
+        .templates-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 40px;
+            margin-bottom: 80px;
+            transition: gap 0.3s ease;
+        }
+        
+        .template-card {
+            background-color: var(--card-bg);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+        }
+        
+        .template-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .template-img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .template-card:hover .template-img {
+            transform: scale(1.05);
+        }
+        
+        .template-info {
+            padding: 30px;
+        }
+        
+        .template-category {
+            display: inline-block;
+            background-color: rgba(0, 82, 204, 0.1);
+            color: var(--primary-color);
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 15px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        
+        .template-title {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: var(--text-color);
+            transition: color 0.3s ease;
+        }
+        
+        .template-description {
+            color: var(--light-text);
+            font-size: 16px;
+            margin-bottom: 20px;
+            line-height: 1.6;
+            transition: color 0.3s ease;
+        }
+        
+        .template-price {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: color 0.3s ease;
+        }
+        
+        .template-price .original-price {
+            font-size: 18px;
+            color: var(--light-text);
+            text-decoration: line-through;
+            font-weight: 400;
+            transition: color 0.3s ease;
+        }
+        
+        .template-actions {
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .preview-btn, .buy-now-btn {
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+        }
+        
+        .preview-btn {
+            background-color: rgba(0, 82, 204, 0.1);
+            color: var(--primary-color);
+        }
+        
+        .preview-btn:hover {
+            transform: translateY(-3px);
+            background-color: rgba(0, 82, 204, 0.2);
+        }
+        
+        .buy-now-btn {
+            background-color: var(--primary-color);
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border: none;
+        }
+        
+        .buy-now-btn:hover {
+            transform: translateY(-3px);
+            background-color: var(--accent-color);
+        }
+        
+        .buy-now-btn.pulse {
+            animation: pulse 0.5s;
+        }
+        
+        /* Payment Modal */
+        .payment-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .payment-content {
+            background-color: var(--card-bg);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            position: relative;
+            transition: background-color 0.3s ease;
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--light-text);
+            transition: color 0.3s ease;
+        }
+        
+        .payment-title {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--text-color);
+            transition: color 0.3s ease;
+        }
+        
+        .payment-amount {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            transition: color 0.3s ease;
+        }
+        .payment-qr {
+            width: 250px;
+            height: 250px;
+            margin: 0 auto 30px;
+            background-color: var(--secondary-color);
+            padding: 20px;
+            border-radius: 10px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .payment-qr img {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .payment-methods {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .payment-method {
+            width: 50px;
+            height: 30px;
+            object-fit: contain;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+        
+        .payment-method:hover {
+            opacity: 1;
+        }
+        
+        .payment-instructions {
+            color: var(--light-text);
+            font-size: 14px;
+            margin-bottom: 20px;
+            transition: color 0.3s ease;
+        }
+        
+        /* Section Title */
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 48px;
+            color: var(--text-color);
+            margin-bottom: 20px;
+            font-weight: 700;
+            transition: color 0.3s ease, font-size 0.3s ease;
+        }
+        
+        .section-title p {
+            color: var(--light-text);
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 20px;
+            line-height: 1.6;
+            transition: color 0.3s ease;
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 100px 0;
+            background-color: var(--white);
+            transition: background-color 0.3s ease;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+        
+        .feature-card {
+            background-color: var(--secondary-color);
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .feature-icon {
+            width: 90px;
+            height: 90px;
+            background-color: rgba(0, 82, 204, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            color: var(--primary-color);
+            font-size: 32px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        
+        .feature-title {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--text-color);
+            transition: color 0.3s ease;
+        }
+        
+        .feature-description {
+            color: var(--light-text);
+            font-size: 16px;
+            line-height: 1.6;
+            transition: color 0.3s ease;
+        }
+        
+        /* Social Media Sidebar */
+        .social-sidebar {
+            position: fixed;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 99;
+        }
+        
+        .social-icon {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            font-size: 22px;
+            transition: transform 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            transform: translateX(5px);
+        }
+        
+        .youtube {
+            background-color: #ff0000;
+        }
+        
+        .instagram {
+            background-color: #e1306c;
+        }
+        
+        .whatsapp {
+            background-color: #25d366;
+        }
+        
+        .telegram {
+            background-color: #0088cc;
+        }
+        
+        /* Call to Action */
+        .cta {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+            transition: background-color 0.3s ease;
+        }
+        
+        .cta h2 {
+            font-size: 48px;
+            margin-bottom: 25px;
+            font-weight: 700;
+            transition: font-size 0.3s ease;
+        }
+        
+        .cta p {
+            max-width: 700px;
+            margin: 0 auto 40px;
+            opacity: 0.9;
+            font-size: 20px;
+            line-height: 1.6;
+            transition: font-size 0.3s ease;
+        }
+        
+        .cta-btn {
+            display: inline-block;
+            background-color: white;
+            color: var(--primary-color);
+            padding: 18px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, color 0.3s ease, background-color 0.3s ease;
+        }
+        
+        .cta-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--text-color);
+            color: var(--white);
+            padding: 80px 0 40px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
+            margin-bottom: 60px;
+        }
+        
+        .footer-logo {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 25px;
+        }
+        
+        .footer-logo span {
+            color: var(--accent-color);
+            transition: color 0.3s ease;
+        }
+        
+        .footer-description {
+            opacity: 0.7;
+            margin-bottom: 25px;
+            line-height: 1.6;
+            font-size: 16px;
+        }
+        
+        .footer-social {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .footer-social a {
+            color: var(--white);
+            opacity: 0.7;
+            transition: opacity 0.3s;
+            font-size: 20px;
+        }
+        
+        .footer-social a:hover {
+            opacity: 1;
+        }
+        
+        .footer-heading {
+            font-size: 22px;
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+        
+        .footer-links a {
+            color: var(--white);
+            opacity: 0.7;
+            text-decoration: none;
+            transition: opacity 0.3s;
+            font-size: 16px;
+        }
+        
+        .footer-links a:hover {
+            opacity: 1;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.7;
+            font-size: 16px;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 48px;
+            }
+            
+            .templates-grid {
+                grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            }
+            
+            .section-title h2 {
+                font-size: 40px;
+            }
+            
+            .cta h2 {
+                font-size: 40px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -300px;
+                width: 300px;
+                height: 100vh;
+                background-color: var(--card-bg);
+                flex-direction: column;
+                padding: 80px 30px;
+                z-index: 1000;
+                transition: right 0.3s ease;
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+            }
+            
+            .nav-links.active {
+                right: 0;
+            }
+            
+            .nav-links a {
+                margin: 15px 0;
+                font-size: 20px;
+            }
+            
+            .close-menu {
+                display: block;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .support-btn {
+                display: none;
+            }
+            
+            .nav-links .support-btn-mobile {
+                display: flex;
+                margin-top: 20px;
+                background-color: var(--accent-color);
+                color: var(--white);
+                padding: 12px 25px;
+                border-radius: 30px;
+                text-decoration: none;
+                font-weight: 600;
+                font-size: 18px;
+                align-items: center;
+                gap: 10px;
+                justify-content: center;
+            }
+            
+            .logo-text {
+                font-size: 22px;
+            }
+            
+            .logo-img {
+                width: 40px;
+                height: 40px;
+            }
+            
+            .hero {
+                padding: 60px 0 40px;
+            }
+            
+            .hero h1 {
+                font-size: 32px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .search-container {
+                flex-direction: column;
+                border-radius: 20px;
+            }
+            
+            .template-select {
+                width: 100%;
+                border-right: none;
+                border-bottom: 1px solid #eee;
+            }
+            
+            .social-sidebar {
+                display: none;
+            }
+            
+            .section-title h2 {
+                font-size: 32px;
+            }
+            
+            .cta h2 {
+                font-size: 32px;
+            }
+            
+            .templates-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .payment-content {
+                padding: 30px 20px;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            /* Embedded QR scanner for mobile */
+            .payment-modal-mobile {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: var(--card-bg);
+                z-index: 1001;
+                display: none;
+                flex-direction: column;
+                padding: 20px;
+            }
+            
+            .payment-modal-mobile.active {
+                display: flex;
+            }
+            
+            .payment-modal-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 20px;
+            }
+            
+            .payment-modal-title {
+                font-size: 20px;
+                font-weight: 600;
+                color: var(--text-color);
+            }
+            
+            .close-modal-mobile {
+                font-size: 24px;
+                color: var(--text-color);
+                background: none;
+                border: none;
+                cursor: pointer;
+            }
+            
+            .payment-scanner {
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+            
+            .scanner-container {
+                width: 100%;
+                max-width: 300px;
+                height: 300px;
+                background-color: var(--secondary-color);
+                border-radius: 10px;
+                overflow: hidden;
+                margin-bottom: 20px;
+            }
+            
+            .scanner-container video {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+            
+            .scanner-instructions {
+                text-align: center;
+                color: var(--light-text);
+                margin-bottom: 20px;
+            }
+            
+            .payment-options {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .payment-option {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                padding: 15px;
+                background-color: var(--secondary-color);
+                border-radius: 10px;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+            }
+            
+            .payment-option:hover {
+                background-color: rgba(0, 82, 204, 0.1);
+            }
+            
+            .payment-option-icon {
+                width: 30px;
+                height: 30px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: var(--primary-color);
+                font-size: 18px;
+            }
+            
+            .payment-option-text {
+                font-size: 16px;
+                color: var(--text-color);
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 20px;
+            }
+            
+            .hero h1 {
+                font-size: 28px;
+            }
+            
+            .animated-badge {
+                font-size: 14px;
+                padding: 8px 16px;
+            }
+            
+            .template-card {
+                border-radius: 15px;
+            }
+            
+            .template-img {
+                height: 200px;
+            }
+            
+            .template-info {
+                padding: 20px;
+            }
+            
+            .template-title {
+                font-size: 20px;
+            }
+            
+            .template-price {
+                font-size: 24px;
+            }
+            
+            .preview-btn, .buy-now-btn {
+                padding: 10px 16px;
+                font-size: 14px;
+            }
+            
+            .payment-qr {
+                width: 200px;
+                height: 200px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Social Media Sidebar -->
+    <div class="social-sidebar">
+        <a href="#" class="social-icon youtube"><i class="fab fa-youtube"></i></a>
+        <a href="#" class="social-icon instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="social-icon whatsapp"><i class="fab fa-whatsapp"></i></a>
+        <a href="#" class="social-icon telegram"><i class="fab fa-telegram-plane"></i></a>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">
+                    <img src="https://res.cloudinary.com/dvknx0hpm/image/upload/v1740480293/WhatsApp_Image_2025-02-25_at_16.10.43_6eb5984b-removebg-preview_t8uakb.png" alt="BusinessHub Logo" class="logo-img">
+                    <div class="logo-text">Vertex<span>Solutions</span></div>
+                </a>
+                <div class="nav-links" id="navLinks">
+                    <a href="#" class="close-menu" id="closeMenu"><i class="fas fa-times"></i></a>
+                    <a href="#about">About Us</a>
+                    <a href="#templates">Templates</a>
+                    <a href="#features">Features</a>
+                    <a href="#contact">Contact</a>
+                    <a href="#" class="support-btn-mobile">
+                        <i class="fas fa-headset"></i>
+                        Support
+                    </a>
+                </div>
+                <div class="nav-right">
+                    <button class="dark-mode-toggle" id="darkModeToggle">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <a href="#" class="support-btn">
+                        <i class="fas fa-headset"></i>
+                        Support
+                    </a>
+                    <button class="mobile-menu-btn" id="mobileMenuBtn">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="animated-badge">
+                <i class="fas fa-star"></i>
+                Premium Business Templates
+            </div>
+            <h1>Professional <span>Business Templates</span> for Your Success</h1>
+            <p>Discover our collection of high-quality business templates designed to help you streamline your workflow and enhance your professional image.</p>
+            
+            <!-- Search Bar -->
+            <div class="search-container">
+                <select class="template-select">
+                    <option value="all">All Categories</option>
+                    <option value="business">Business</option>
+                    <option value="marketing">Marketing</option>
+                    <option value="finance">Finance</option>
+                    <option value="presentation">Presentation</option>
+                    <option value="social">Social Media</option>
+                </select>
+                <input type="text" class="search-input" placeholder="Search for templates...">
+                <button class="search-btn">Search</button>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <style>
+
+        
+
+    @media (max-width: 992px) {
+        .hero h1 {
+            font-size: 48px;
+        }
+        
+        .templates-grid {
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        }
+        
+        .section-title h2 {
+            font-size: 40px;
+        }
+        
+        .cta h2 {
+            font-size: 40px;
+        }
+        
+        /* About section responsive */
+        .about-content {
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+        
+        .experience-badge {
+            bottom: -20px;
+            right: -20px;
+            width: 100px;
+            height: 100px;
+            padding: 20px;
+        }
+        
+        .experience-badge .years {
+            font-size: 28px;
+        }
+        
+        .experience-badge .text {
+            font-size: 12px;
+        }
+        
+        .about-text h3 {
+            font-size: 28px;
+        }
+    }
+    
+    @media (max-width: 768px) {
+        /* Existing styles */
+        
+        /* About section responsive */
+        .about-stats {
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .about-features {
+            grid-template-columns: 1fr;
+        }
+    }
+    </style>
+
+    <!-- Templates Section -->
+    <section id="templates">
+        <div class="container">
+            <div class="section-title">
+                <h2>Explore Our Templates</h2>
+                <p>Browse through our extensive collection of professionally designed templates for various business needs.</p>
+            </div>
+            
+            <div class="templates-grid">
+                <!-- Template 1 -->
+                <div class="template-card" data-category="business">
+                    <img src="https://via.placeholder.com/600x400/f5f5f5/333?text=Business+Plan+Template" alt="Business Plan Template" class="template-img">
+                    <div class="template-info">
+                        <span class="template-category">Business</span>
+                        <h3 class="template-title">Business Plan Template</h3>
+                        <p class="template-description">A comprehensive business plan template with financial projections, market analysis, and executive summary sections.</p>
+                        <div class="template-price">
+                            $49.99 <span class="original-price">$79.99</span>
+                        </div>
+                        <div class="template-actions">
+                            <a href="#" class="preview-btn">Preview</a>
+                            <button class="buy-now-btn" data-price="49.99" data-template="Business Plan Template">
+                                <i class="fas fa-shopping-cart"></i>
+                                Buy Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Template 2 -->
+                <div class="template-card" data-category="marketing">
+                    <img src="https://via.placeholder.com/600x400/f5f5f5/333?text=Marketing+Strategy" alt="Marketing Strategy Template" class="template-img">
+                    <div class="template-info">
+                        <span class="template-category">Marketing</span>
+                        <h3 class="template-title">Marketing Strategy Template</h3>
+                        <p class="template-description">A complete marketing strategy template with campaign planning, budget allocation, and performance tracking.</p>
+                        <div class="template-price">
+                            $39.99 <span class="original-price">$59.99</span>
+                        </div>
+                        <div class="template-actions">
+                            <a href="#" class="preview-btn">Preview</a>
+                            <button class="buy-now-btn" data-price="39.99" data-template="Marketing Strategy Template">
+                                <i class="fas fa-shopping-cart"></i>
+                                Buy Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Template 3 -->
+                <div class="template-card" data-category="finance">
+                    <img src="https://via.placeholder.com/600x400/f5f5f5/333?text=Financial+Report" alt="Financial Report Template" class="template-img">
+                    <div class="template-info">
+                        <span class="template-category">Finance</span>
+                        <h3 class="template-title">Financial Report Template</h3>
+                        <p class="template-description">Professional financial report template with balance sheets, income statements, and cash flow analysis.</p>
+                        <div class="template-price">
+                            $59.99 <span class="original-price">$89.99</span>
+                        </div>
+                        <div class="template-actions">
+                            <a href="#" class="preview-btn">Preview</a>
+                            <button class="buy-now-btn" data-price="59.99" data-template="Financial Report Template">
+                                <i class="fas fa-shopping-cart"></i>
+                                Buy Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Template 4 -->
+                <div class="template-card" data-category="presentation">
+                    <img src="https://via.placeholder.com/600x400/f5f5f5/333?text=Pitch+Deck" alt="Pitch Deck Template" class="template-img">
+                    <div class="template-info">
+                        <span class="template-category">Presentation</span>
+                        <h3 class="template-title">Pitch Deck Template</h3>
+                        <p class="template-description">Impressive pitch deck template designed to help you secure funding and impress potential investors.</p>
+                        <div class="template-price">
+                            $44.99 <span class="original-price">$69.99</span>
+                        </div>
+                        <div class="template-actions">
+                            <a href="#" class="preview-btn">Preview</a>
+                            <button class="buy-now-btn" data-price="44.99" data-template="Pitch Deck Template">
+                                <i class="fas fa-shopping-cart"></i>
+                                Buy Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Template 5 -->
+                <div class="template-card" data-category="social">
+                    <img src="https://via.placeholder.com/600x400/f5f5f5/333?text=Social+Media+Kit" alt="Social Media Kit" class="template-img">
+                    <div class="template-info">
+                        <span class="template-category">Social Media</span>
+                        <h3 class="template-title">Social Media Kit</h3>
+                        <p class="template-description">Complete social media kit with post templates, content calendar, and performance tracking sheets.</p>
+                        <div class="template-price">
+                            $34.99 <span class="original-price">$54.99</span>
+                        </div>
+                        <div class="template-actions">
+                            <a href="#" class="preview-btn">Preview</a>
+                            <button class="buy-now-btn" data-price="34.99" data-template="Social Media Kit">
+                                <i class="fas fa-shopping-cart"></i>
+                                Buy Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Template 6 -->
+                <div class="template-card" data-category="business">
+                    <img src="https://via.placeholder.com/600x400/f5f5f5/333?text=Project+Management" alt="Project Management Template" class="template-img">
+                    <div class="template-info">
+                        <span class="template-category">Business</span>
+                        <h3 class="template-title">Project Management Template</h3>
+                        <p class="template-description">Comprehensive project management template with Gantt charts, resource allocation, and milestone tracking.</p>
+                        <div class="template-price">
+                            $54.99 <span class="original-price">$79.99</span>
+                        </div>
+                        <div class="template-actions">
+                            <a href="#" class="preview-btn">Preview</a>
+                            <button class="buy-now-btn" data-price="54.99" data-template="Project Management Template">
+                                <i class="fas fa-shopping-cart"></i>
+                                Buy Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+</header>
+
+<!-- About Section -->
+<section id="about" class="about">
+    <div class="container">
+        <div class="section-title">
+            <h2>About Vertex Solutions</h2>
+            <p>Learn more about our mission and what makes our templates stand out from the competition.</p>
+        </div>
+        
+        <div class="about-content">
+            <div class="about-image">
+                <img src="https://res.cloudinary.com/dvknx0hpm/image/upload/v1741530129/DALL_E_2025-03-09_19.51.45_-_A_professional_About_section_for_a_portfolio_and_business_website._The_layout_includes__-_A_modern_design_with_a_clean_and_elegant_aesthetic._-_A_team_uah5qt.webp" alt="About Vertex Solutions">
+                <div class="experience-badge">
+                    <span class="years">10+</span>
+                    <span class="text">Years of Experience</span>
+                </div>
+            </div>
+            
+            <div class="about-text">
+                <h3>We Create Professional Business Templates That Help You Succeed</h3>
+                <p>Founded in 2013, Vertex Solutions has been at the forefront of providing high-quality business templates to professionals and organizations worldwide. Our team of experienced designers and business consultants work together to create templates that are not only visually appealing but also functionally effective.</p>
+                
+                <div class="about-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">500+</div>
+                        <div class="stat-label">Templates Created</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">50k+</div>
+                        <div class="stat-label">Happy Customers</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">98%</div>
+                        <div class="stat-label">Satisfaction Rate</div>
+                    </div>
+                </div>
+                
+                <div class="about-features">
+                    <div class="feature-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Professional Design Standards</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Regular Updates & Improvements</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Dedicated Customer Support</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Industry-Specific Templates</span>
+                    </div>
+                </div>
+                
+                <a href="#templates" class="about-cta">Explore Our Templates</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+/* About Section */
+.about {
+    padding: 100px 0;
+    background-color: var(--white);
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.3s ease;
+}
+
+.about::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary-color), #00a3e0);
+    opacity: 0.1;
+    z-index: 0;
+}
+
+.about::after {
+    content: '';
+    position: absolute;
+    bottom: -100px;
+    left: -100px;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary-color), #00a3e0);
+    opacity: 0.1;
+    z-index: 0;
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+.about-image {
+    position: relative;
+    perspective: 1000px;
+    transform-style: preserve-3d;
+}
+
+.about-image img {
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    transition: all 0.5s ease;
+    transform: rotateY(0deg);
+}
+
+.about-image:hover img {
+    transform: rotateY(5deg);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.experience-badge {
+    position: absolute;
+    bottom: -30px;
+    right: -30px;
+    background: linear-gradient(135deg, var(--primary-color), #00a3e0);
+    color: white;
+    padding: 25px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 140px;
+    height: 140px;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease;
+    animation: float 3s ease-in-out infinite;
+    z-index: 2;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+.experience-badge .years {
+    font-size: 36px;
+    font-weight: 800;
+    line-height: 1;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.experience-badge .text {
+    font-size: 14px;
+    text-align: center;
+    font-weight: 500;
+    margin-top: 5px;
+}
+
+.about-text h3 {
+    font-size: 36px;
+    margin-bottom: 25px;
+    color: var(--text-color);
+    transition: color 0.3s ease;
+    font-weight: 700;
+    line-height: 1.3;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.about-text h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(135deg, var(--primary-color), #00a3e0);
+    border-radius: 2px;
+}
+
+.about-text p {
+    color: var(--light-text);
+    margin-bottom: 30px;
+    line-height: 1.8;
+    transition: color 0.3s ease;
+    font-size: 18px;
+}
+
+.about-stats {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.stat-item {
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.stat-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--primary-color), #00a3e0);
+    opacity: 0.05;
+    z-index: -1;
+    transition: opacity 0.3s ease;
+}
+
+.stat-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.stat-item:hover::before {
+    opacity: 0.1;
+}
+
+.stat-number {
+    font-size: 42px;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--primary-color), #00a3e0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 10px;
+    position: relative;
+    display: inline-block;
+}
+
+.stat-number::after {
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(135deg, var(--primary-color), #00a3e0);
+    opacity: 0.3;
+}
+
+.stat-label {
+    color: var(--light-text);
+    font-size: 16px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.about-features {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    border-radius: 12px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.feature-item:hover {
+    background-color: rgba(0, 82, 204, 0.05);
+    transform: translateX(5px);
+}
+
+.feature-item i {
+    color: #00d2ff;
+    font-size: 24px;
+    transition: transform 0.3s ease;
+}
+
+.feature-item:hover i {
+    transform: scale(1.2);
+}
+
+.feature-item span {
+    color: var(--text-color);
+    font-weight: 500;
+    transition: color 0.3s ease;
+    font-size: 17px;
+}
+
+.about-cta {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--primary-color), #00a3e0);
+    color: white;
+    padding: 16px 35px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 18px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    box-shadow: 0 8px 25px rgba(0, 82, 204, 0.3);
+}
+
+.about-cta::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--accent-color), #ff9e80);
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 0.3s ease;
+}
+
+.about-cta:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 15px 35px rgba(0, 82, 204, 0.4);
+}
+
+.about-cta:hover::before {
+    opacity: 1;
+}
+
+</style>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Choose Our Templates</h2>
+                <p>Our templates are designed with your business needs in mind, offering a range of features to help you succeed.</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3 class="feature-title">Professional Design</h3>
+                    <p class="feature-description">Our templates are designed by professionals with years of experience in business and design.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-cog"></i>
+                    </div>
+                    <h3 class="feature-title">Fully Customizable</h3>
+                    <p class="feature-description">Easily customize our templates to match your brand identity and specific business needs.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3 class="feature-title">Responsive Design</h3>
+                    <p class="feature-description">All our templates are responsive and work perfectly on all devices and screen sizes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta">
+        <div class="container">
+            <h2>Ready to Elevate Your Business?</h2>
+            <p>Get access to our premium templates and start creating professional business documents today.</p>
+            <a href="#templates" class="cta-btn">Explore Templates</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-logo">Vertex<span>Solutions</span></div>
+                    <p class="footer-description">We provide high-quality business templates to help professionals streamline their workflow and enhance their business image.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#templates">Templates</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="footer-heading">Template Categories</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Business</a></li>
+                        <li><a href="#">Marketing</a></li>
+                        <li><a href="#">Finance</a></li>
+                        <li><a href="#">Presentation</a></li>
+                        <li><a href="#">Social Media</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="footer-heading">Contact Us</h4>
+                    <ul class="footer-links">
+                        <li><a href="mailto:info@businesshub.com">info@businesshub.com</a></li>
+                        <li><a href="tel:+1234567890">+1 (234) 567-890</a></li>
+                        <li><a href="#">123 Business Street, Suite 100, New York, NY 10001</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                &copy; 2023 BusinessHub. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Payment Modal -->
+    <div class="payment-modal" id="paymentModal">
+        <div class="payment-content">
+            <span class="close-modal" id="closeModal"><i class="fas fa-times"></i></span>
+            <h3 class="payment-title">Complete Your Purchase</h3>
+            <div class="payment-amount" id="modalAmount">$49.99</div>
+            <div class="payment-qr">
+                <img id="paymentQR" src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://businesshub-payment.com/template" alt="Payment QR Code">
+            </div>
+            <div class="payment-methods">
+                <img src="https://via.placeholder.com/50x30/fff/333?text=MC" alt="MasterCard" class="payment-method">
+                <img src="https://via.placeholder.com/50x30/fff/333?text=Amex" alt="American Express" class="payment-method">
+                <img src="https://via.placeholder.com/50x30/fff/333?text=PayPal" alt="PayPal" class="payment-method">
+            </div>
+            <p class="payment-instructions">Scan the QR code with your banking app to complete the payment.</p>
+        </div>
+    </div>
+    
+    <!-- Mobile Payment Modal with Scanner -->
+    <div class="payment-modal-mobile" id="paymentModalMobile">
+        <div class="payment-modal-header">
+            <div class="payment-modal-title">Complete Your Purchase</div>
+            <button class="close-modal-mobile" id="closeModalMobile"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="payment-scanner">
+            <div class="scanner-container" id="scannerContainer">
+                <video id="scannerVideo" playsinline></video>
+            </div>
+            <p class="scanner-instructions">Point your camera at a QR code to make a payment</p>
+            <div class="payment-options">
+                <div class="payment-option">
+                    <div class="payment-option-icon"><i class="fas fa-credit-card"></i></div>
+                    <div class="payment-option-text">Pay with Credit Card</div>
+                </div>
+                <div class="payment-option">
+                    <div class="payment-option-icon"><i class="fab fa-paypal"></i></div>
+                    <div class="payment-option-text">Pay with PayPal</div>
+                </div>
+                <div class="payment-option">
+                    <div class="payment-option-icon"><i class="fas fa-university"></i></div>
+                    <div class="payment-option-text">Pay with Bank Transfer</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // DOM Elements
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const body = document.body;
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const closeMenu = document.getElementById('closeMenu');
+        const navLinks = document.getElementById('navLinks');
+        const buyNowBtns = document.querySelectorAll('.buy-now-btn');
+        const paymentModal = document.getElementById('paymentModal');
+        const paymentModalMobile = document.getElementById('paymentModalMobile');
+        const closeModal = document.getElementById('closeModal');
+        const closeModalMobile = document.getElementById('closeModalMobile');
+        const modalAmount = document.getElementById('modalAmount');
+        const paymentQR = document.getElementById('paymentQR');
+        const animatedBadge = document.querySelector('.animated-badge');
+        const scannerVideo = document.getElementById('scannerVideo');
+        
+        // Dark Mode Toggle
+        let isDarkMode = localStorage.getItem('darkMode') === 'true';
+        
+        // Set initial dark mode state
+        if (isDarkMode) {
+            body.setAttribute('data-theme', 'dark');
+            darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+        }
+        
+        darkModeToggle.addEventListener('click', () => {
+            isDarkMode = !isDarkMode;
+            if (isDarkMode) {
+                body.setAttribute('data-theme', 'dark');
+                darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+            } else {
+                body.removeAttribute('data-theme');
+                darkModeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+            }
+            localStorage.setItem('darkMode', isDarkMode);
+        });
+        
+        // Mobile Menu
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.add('active');
+        });
+        
+        closeMenu.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+        });
+        
+        // Close menu when clicking on a link
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+        
+        // Payment Modal
+        buyNowBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const price = btn.getAttribute('data-price');
+                const template = btn.getAttribute('data-template');
+                
+                modalAmount.textContent = `$${price}`;
+                paymentQR.src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://businesshub-payment.com/${template.replace(/\s+/g, '-').toLowerCase()}/${price}`;
+                
+                // Check if mobile
+                if (window.innerWidth <= 768) {
+                    paymentModalMobile.classList.add('active');
+                    startScanner();
+                } else {
+                    paymentModal.style.display = 'flex';
+                    setTimeout(() => {
+                        paymentModal.style.opacity = '1';
+                    }, 10);
+                }
+                
+                // Add pulse animation to button
+                btn.classList.add('pulse');
+                setTimeout(() => {
+                    btn.classList.remove('pulse');
+                }, 500);
+            });
+        });
+        
+        closeModal.addEventListener('click', () => {
+            paymentModal.style.opacity = '0';
+            setTimeout(() => {
+                paymentModal.style.display = 'none';
+            }, 300);
+        });
+        
+        closeModalMobile.addEventListener('click', () => {
+            paymentModalMobile.classList.remove('active');
+            stopScanner();
+        });
+        
+        // QR Scanner for mobile
+        async function startScanner() {
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } });
+                scannerVideo.srcObject = stream;
+                scannerVideo.play();
+            } catch (err) {
+                console.error("Error accessing camera:", err);
+                // Show fallback message if camera access fails
+                document.getElementById('scannerContainer').innerHTML = `
+                    <div style="display: flex; align-items: center; justify-content: center; height: 100%; flex-direction: column;">
+                        <i class="fas fa-camera-slash" style="font-size: 48px; color: var(--light-text); margin-bottom: 15px;"></i>
+                        <p style="text-align: center; color: var(--light-text);">Camera access denied or not available</p>
+                    </div>
+                `;
+            }
+        }
+        
+        function stopScanner() {
+            if (scannerVideo.srcObject) {
+                scannerVideo.srcObject.getTracks().forEach(track => track.stop());
+                scannerVideo.srcObject = null;
+            }
+        }
+        
+        // Animated Badge
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                animatedBadge.classList.add('pulse');
+                setTimeout(() => {
+                    animatedBadge.classList.remove('pulse');
+                }, 1000);
+            }, 2000);
+            
+            // Repeat the animation every 10 seconds
+            setInterval(() => {
+                animatedBadge.classList.add('pulse');
+                setTimeout(() => {
+                    animatedBadge.classList.remove('pulse');
+                }, 1000);
+            }, 10000);
+        });
+        
+        // Filter templates by category
+        const templateSelect = document.querySelector('.template-select');
+        const templateCards = document.querySelectorAll('.template-card');
+        
+        templateSelect.addEventListener('change', () => {
+            const selectedCategory = templateSelect.value;
+            
+            templateCards.forEach(card => {
+                if (selectedCategory === 'all' || card.getAttribute('data-category') === selectedCategory) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+        
+        // Search functionality
+        const searchInput = document.querySelector('.search-input');
+        const searchBtn = document.querySelector('.search-btn');
+        
+        function performSearch() {
+            const searchTerm = searchInput.value.toLowerCase();
+            
+            templateCards.forEach(card => {
+                const title = card.querySelector('.template-title').textContent.toLowerCase();
+                const description = card.querySelector('.template-description').textContent.toLowerCase();
+                const category = card.getAttribute('data-category').toLowerCase();
+                
+                if (title.includes(searchTerm) || description.includes(searchTerm) || category.includes(searchTerm)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+        
+        searchBtn.addEventListener('click', performSearch);
+        searchInput.addEventListener('keyup', (e) => {
+            if (e.key === 'Enter') {
+                performSearch();
+            }
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                if (this.getAttribute('href') === '#') return;
+                
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
